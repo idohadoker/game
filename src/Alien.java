@@ -5,19 +5,21 @@ public class Alien extends mainclass {
 
     private Bomb bomb;
     private int direction;
+    int row;
 
 
-    public Alien(int x, int y) {
+    public Alien(int x, int y,int row) {
 
-        initAlien(x, y);
+        initAlien(x, y,row);
 
     }
 
-    private void initAlien(int x, int y) {
+    private void initAlien(int x, int y, int row) {
 
         this.x = x;
         this.y = y;
         this.direction = -1;
+        this.row = row;
         bomb = new Bomb(x, y);
 
         String alienImg = "src/images/alien.png";
@@ -37,19 +39,17 @@ public class Alien extends mainclass {
     }
 
 
-
-
     @Override
     public void run() {
-        while (true) {
+        while (this.isVisible()) {
 
             // move each alien down depends on direction 1 moving right -1 moving left
 
-            if (this.x+Commons.ALIEN_WIDTH/2 >= Commons.BOARD_WIDTH - Commons.BORDER_RIGHT && this.direction != -1) {
+            if (this.x + Commons.ALIEN_WIDTH / 2 >= Commons.BOARD_WIDTH - Commons.BORDER_RIGHT && this.direction != -1) {
                 this.direction = -1;
                 this.setY(this.y + Commons.GO_DOWN);
             }
-            if (this.x <=Commons.BORDER_LEFT && this.direction != 1) {
+            if (this.x <= Commons.BORDER_LEFT && this.direction != 1) {
                 this.direction = 1;
                 this.setY(this.y + Commons.GO_DOWN);
             }
@@ -60,8 +60,8 @@ public class Alien extends mainclass {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            if (isDying()){
-                for (ImageIcon image: image_list) {
+            if (isDying()) {
+                for (ImageIcon image : image_list) {
                     setImage(image.getImage());
                     try {
                         Thread.sleep(20);
@@ -69,7 +69,7 @@ public class Alien extends mainclass {
                         throw new RuntimeException(e);
                     }
                 }
-die();
+                die();
             }
         }
     }

@@ -59,7 +59,7 @@ public class Board extends JPanel {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < 6; j++) {
                 Alien alien = new Alien(Commons.ALIEN_INIT_X + 100 * j,
-                        Commons.ALIEN_INIT_Y + 40 * i);
+                        Commons.ALIEN_INIT_Y + 40 * i,rows);
                 aliens.add(alien);
                 alien.start();
             }
@@ -244,11 +244,8 @@ public class Board extends JPanel {
 
         // move each alien down depends on direction 1 moving right -1 moving left
 
-        Iterator<Alien> it = aliens.iterator();
         // checks for each alien if he is touching ground
-        while (it.hasNext()) {
-
-            Alien alien = it.next();
+        for (Alien alien : aliens) {
 
             if (alien.isVisible()) {
 

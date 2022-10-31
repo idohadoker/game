@@ -4,9 +4,10 @@ public class Bomb extends mainclass {
 
     private boolean destroyed;
 
-    public Bomb(){
+    public Bomb() {
 
     }
+
     public Bomb(int x, int y) {
         initBomb(x, y);
     }
@@ -25,21 +26,20 @@ public class Bomb extends mainclass {
     }
 
     public void setDestroyed(boolean destroyed) {
-if (destroyed)
-{
-    for (ImageIcon image: image_list) {
-        setImage(image.getImage());
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    String bombImg = "src/images/bomb.png";
-    ImageIcon ii = new ImageIcon(bombImg);
-    setImage(ii.getImage());
+        if (destroyed) {
+            for (ImageIcon image : image_list) {
+                setImage(image.getImage());
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            String bombImg = "src/images/bomb.png";
+            ImageIcon ii = new ImageIcon(bombImg);
+            setImage(ii.getImage());
 
-}
+        }
         this.destroyed = destroyed;
     }
 
@@ -51,22 +51,22 @@ if (destroyed)
 
     @Override
     public void run() {
-while (true) {
-    if (!this.isDestroyed()) {
+        while (this.isVisible()) {
+            if (!this.isDestroyed()) {
 
-        this.setY(this.getY() + 1);
-        if (this.getY()-Commons.BOMB_HEIGHT/2 >= Commons.GROUND - Commons.BOMB_HEIGHT) {
+                this.setY(this.getY() + 1);
+                if (this.getY() - Commons.BOMB_HEIGHT / 2 >= Commons.GROUND - Commons.BOMB_HEIGHT) {
 
 
-            this.setDestroyed(true);
+                    this.setDestroyed(true);
+                }
+            }
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
-
-    try {
-        Thread.sleep(10);
-    } catch (InterruptedException e) {
-        throw new RuntimeException(e);
-    }
-}
     }
 }

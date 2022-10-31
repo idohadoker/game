@@ -27,7 +27,7 @@ public class Shot extends mainclass {
 
     @Override
     public void run() {
-        while (true) {
+        while (this.isVisible()) {
 
             if (isVisible()) {
                 int y = this.y;

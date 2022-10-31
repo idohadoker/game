@@ -33,7 +33,7 @@ public class Player extends mainclass {
 
     @Override
     public void run() {
-        while (true) {
+        while (this.isAlive()) {
 
             x += dx;
 
