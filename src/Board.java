@@ -244,8 +244,11 @@ public class Board extends JPanel {
 
         // move each alien down depends on direction 1 moving right -1 moving left
 
+        Iterator<Alien> it = aliens.iterator();
         // checks for each alien if he is touching ground
-        for (Alien alien : aliens) {
+        while (it.hasNext()) {
+
+            Alien alien = it.next();
 
             if (alien.isVisible()) {
 
