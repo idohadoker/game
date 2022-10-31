@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 public class Board extends JPanel {
@@ -244,11 +243,8 @@ public class Board extends JPanel {
 
         // move each alien down depends on direction 1 moving right -1 moving left
 
-        Iterator<Alien> it = aliens.iterator();
         // checks for each alien if he is touching ground
-        while (it.hasNext()) {
-
-            Alien alien = it.next();
+        for (Alien alien : aliens) {
 
             if (alien.isVisible()) {
 
