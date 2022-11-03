@@ -4,22 +4,20 @@ import java.util.ArrayList;
 public class Alien extends mainclass {
 
     private Bomb bomb;
-    private int direction;
-    int row;
+    private static int direction= -1;
 
 
-    public Alien(int x, int y,int row) {
 
-        initAlien(x, y,row);
+    public Alien(int x, int y) {
+
+        initAlien(x, y);
 
     }
 
-    private void initAlien(int x, int y, int row) {
+    private void initAlien(int x, int y) {
 
         this.x = x;
         this.y = y;
-        this.direction = -1;
-        this.row = row;
         bomb = new Bomb(x, y);
 
         String alienImg = "src/images/alien.png";
@@ -30,7 +28,7 @@ public class Alien extends mainclass {
 
     public void act() {
 
-        this.x += this.direction;
+        this.x += direction;
     }
 
     public Bomb getBomb() {
@@ -45,12 +43,12 @@ public class Alien extends mainclass {
 
             // move each alien down depends on direction 1 moving right -1 moving left
 
-            if (this.x + Commons.ALIEN_WIDTH / 2 >= Commons.BOARD_WIDTH - Commons.BORDER_RIGHT && this.direction != -1) {
-                this.direction = -1;
+            if (this.x + Commons.ALIEN_WIDTH / 2 >= Commons.BOARD_WIDTH - Commons.BORDER_RIGHT && direction != -1) {
+                direction = -1;
                 this.setY(this.y + Commons.GO_DOWN);
             }
-            if (this.x <= Commons.BORDER_LEFT && this.direction != 1) {
-                this.direction = 1;
+            if (this.x <= Commons.BORDER_LEFT && direction != 1) {
+                direction = 1;
                 this.setY(this.y + Commons.GO_DOWN);
             }
 

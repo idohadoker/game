@@ -58,7 +58,7 @@ public class Board extends JPanel {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < 6; j++) {
                 Alien alien = new Alien(Commons.ALIEN_INIT_X + 100 * j,
-                        Commons.ALIEN_INIT_Y + 40 * i,rows);
+                        Commons.ALIEN_INIT_Y + 40 * i);
                 aliens.add(alien);
                 alien.start();
             }
