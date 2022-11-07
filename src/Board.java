@@ -56,13 +56,14 @@ public class Board extends JPanel {
     private void addaliens() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
-                Alien alien = new Alien(Commons.ALIEN_INIT_X + 100 * j,
+                Alien alien = new Alien(Commons.ALIEN_INIT_X + 150 * j,
                         Commons.ALIEN_INIT_Y + 40 * i);
                 aliens.add(alien);
-                alien.start();
             }
-
         }
+
+        for (Alien alien :aliens)
+            alien.start();
     }
 
     private void drawAliens(Graphics g) {
