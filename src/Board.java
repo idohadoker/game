@@ -15,7 +15,6 @@ public class Board extends JPanel {
     private java.util.List<Alien> aliens;
     private Player player;
     private Shot shot;
-    int rows = 1;
     private int deaths = 0;
 
 
@@ -55,7 +54,7 @@ public class Board extends JPanel {
     }
 
     private void addaliens() {
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
                 Alien alien = new Alien(Commons.ALIEN_INIT_X + 100 * j,
                         Commons.ALIEN_INIT_Y + 40 * i);
@@ -206,12 +205,8 @@ public class Board extends JPanel {
 
     private void update() {
 
-        if (deaths == rows * 6) {
-            deaths = 0;
-            rows++;
-            addaliens();
-        }
-        if (rows == 6) {
+
+        if (deaths == Commons.NUMBER_OF_ALIENS_TO_DESTROY) {
             player.ingame = false;
             timer.stop();
             message = "win!";
