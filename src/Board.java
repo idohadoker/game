@@ -151,9 +151,9 @@ public class Board extends JPanel {
         g.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
 
         g.setColor(Color.black); // message background
-        g.fillRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+        g.fillRect(50, Commons.BOARD_HEIGHT / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
         g.setColor(Color.blue); // outline
-        g.drawRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+        g.drawRect(50, Commons.BOARD_HEIGHT / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
 
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics fontMetrics = this.getFontMetrics(small);
@@ -161,7 +161,7 @@ public class Board extends JPanel {
         g.setColor(Color.white); // message text
         g.setFont(small);
         g.drawString(message, (Commons.BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2,
-                Commons.BOARD_WIDTH / 2);
+                Commons.BOARD_HEIGHT / 2);
 
         gameended();
     }
