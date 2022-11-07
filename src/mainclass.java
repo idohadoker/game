@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class mainclass extends Thread {
 
-    private boolean visible;
-    private Image image;
-    private boolean dying;
+    protected boolean visible;
+    protected Image image;
+    protected boolean dying;
     protected ArrayList<ImageIcon> image_list;
-    int x;
-    int y;
+    protected int x;
+    protected int y;
 
     public mainclass() {
         init_image_list();
@@ -27,7 +27,6 @@ public class mainclass extends Thread {
         visible = false;
 
     }
-
 
 
     public boolean isVisible() {

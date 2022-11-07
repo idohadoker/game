@@ -123,7 +123,7 @@ public class Board extends JPanel {
         g.fillRect(0, 0, d.width, d.height);
         g.setColor(Color.green);// ground
 
-        if (player.ingame) {
+        if (player.isIngame()) {
             g.drawLine(0, Commons.GROUND,
                     Commons.BOARD_WIDTH, Commons.GROUND);
 
@@ -208,7 +208,7 @@ public class Board extends JPanel {
 
 
         if (deaths == Commons.NUMBER_OF_ALIENS_TO_DESTROY) {
-            player.ingame = false;
+            player.setIngame(false);
             timer.stop();
             message = "win!";
         }
@@ -249,7 +249,7 @@ public class Board extends JPanel {
                 int y = alien.getY();
 
                 if (y > Commons.ALIENGROUND - Commons.ALIEN_HEIGHT) {
-                    player.ingame = false;
+                    player.setIngame(false);
                     timer.stop();
                     message = "Invasion!";
                     gameended();
@@ -333,12 +333,12 @@ public class Board extends JPanel {
         public void keyReleased(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 
-                player.dx = 0;
+                player.setDx(0);
             }
 
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 
-                player.dx = 0;
+                player.setDx(0);
             }
         }
 
@@ -348,16 +348,16 @@ public class Board extends JPanel {
             int key = e.getKeyCode();
 
             if (key == KeyEvent.VK_LEFT) {
-                player.dx = -2;
+                player.setDx(-2);
             }
 
             if (key == KeyEvent.VK_RIGHT) {
 
-                player.dx = 2;
+                player.setDx(2);
             }
 
             if (key == KeyEvent.VK_SPACE) {
-                if (player.ingame) {
+                if (player.isIngame()) {
                     // only 1 shot each time
                     if (!shot.isVisible()) {
                         shot = new Shot(player.getX(), player.getY());

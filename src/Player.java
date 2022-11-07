@@ -5,14 +5,12 @@ import java.util.ArrayList;
 public class Player extends mainclass {
 
 
-    int dx;
-    public boolean ingame;
+    private int dx;
+    private boolean ingame;
 
     public Player() {
         ingame = true;
         initPlayer();
-
-
         start();
     }
 
@@ -35,7 +33,7 @@ public class Player extends mainclass {
     public void run() {
         while (this.isAlive()) {
 
-            x += dx;
+            x += this.dx;
 
             if (x <= 2) {
 
@@ -66,5 +64,17 @@ public class Player extends mainclass {
                 this.ingame=false;
             }
         }
+    }
+
+    public boolean isIngame() {
+        return ingame;
+    }
+
+    public void setIngame(boolean ingame) {
+        this.ingame = ingame;
+    }
+
+    public void setDx(int dx) {
+        this.dx = dx;
     }
 }
