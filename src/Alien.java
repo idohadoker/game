@@ -5,13 +5,21 @@ public class Alien extends mainclass {
 
     private Bomb bomb;
     private static int direction= -1;
-
+    private  static boolean border = false;
 
 
     public Alien(int x, int y) {
 
         initAlien(x, y);
 
+    }
+
+    public static boolean isBorder() {
+        return border;
+    }
+
+    public static void setBorder(boolean border) {
+        Alien.border = border;
     }
 
     private void initAlien(int x, int y) {
@@ -45,11 +53,11 @@ public class Alien extends mainclass {
 
             if (this.x + Commons.ALIEN_WIDTH / 2 >= Commons.BOARD_WIDTH - Commons.BORDER_RIGHT && direction != -1) {
                 direction = -1;
-                this.setY(this.y + Commons.GO_DOWN);
+                border = true;
             }
             if (this.x <= Commons.BORDER_LEFT && direction != 1) {
                 direction = 1;
-                this.setY(this.y + Commons.GO_DOWN);
+                border = true;
             }
 
             this.act();

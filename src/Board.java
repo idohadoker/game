@@ -218,6 +218,8 @@ public class Board extends JPanel {
         // hit alien
         for (Alien alien : aliens) {
 
+
+
             int alienX = alien.getX();
             int alienY = alien.getY();
 
@@ -255,6 +257,19 @@ public class Board extends JPanel {
 
             }
         }
+//move down
+        for (Alien alien : aliens){
+            int bo =0;
+            if (alien.isBorder()){
+                bo= 1;
+                for (Alien al: aliens)
+                    al.setY(al.getY() + Commons.GO_DOWN);
+
+            }
+            if(bo == 1)
+                alien.setBorder(false);
+        }
+
 
         // bombs
         Random generator = new Random();
