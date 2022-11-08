@@ -2,7 +2,7 @@ import java.awt.*;
 
 public interface Commons {
 
-    int BOARD_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+    int BOARD_WIDTH = 1000;
     int BOARD_HEIGHT = 1000;
     int BORDER_RIGHT = 30;
     int BORDER_LEFT = 5;
