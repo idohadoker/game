@@ -167,41 +167,7 @@ public class Board extends JPanel {
     }
 
     private void gameended() {
-        // #TODO
-        /*
-         * try {
-         * Thread.sleep(2000);
-         * } catch (InterruptedException e) {
-         * throw new RuntimeException(e);
-         * }
-         * String[] options = {"play again", "Exit"};
-         * int response = JOptionPane.showOptionDialog(null, "Game ended ",
-         * "choose option",
-         * JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-         * null, options, options[0]);
-         *
-         *
-         * switch (response) {
-         * case -1:
-         * System.out.println("Option Dialog Window Was Closed");
-         * System.exit(0);
-         * case 0:
-         * getGraphics().dispose();
-         *
-         * new SpaceInvaders();
-         * break;
-         * case 1:
-         * getGraphics().dispose();
-         *
-         * new SpaceInvaders();
-         * break;
-         * case 2:
-         * System.exit(0);
-         *
-         * default:
-         * break;
-         * }
-         */
+    new SwingControlDemo(message);
     }
 
     private void update() {

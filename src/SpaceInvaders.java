@@ -17,13 +17,8 @@ public class SpaceInvaders extends JFrame {
     }
 
     public static void main(String[] args) {
-
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new SpaceInvaders().setVisible(true);
-
-            }
+        EventQueue.invokeLater(() -> {
+            new SpaceInvaders().setVisible(true);
         });
     }
 }
