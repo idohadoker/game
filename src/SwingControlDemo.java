@@ -21,10 +21,10 @@ public class SwingControlDemo {
 
     private void prepareGUI() {
         mainFrame = new JFrame("Game ended");
-        mainFrame.setSize(120,200);
+        mainFrame.setSize(400,200);
         mainFrame.setLayout(new GridLayout(3, 3));
 
-        mainFrame.setLocation(tk.getScreenSize().width/2,tk.getScreenSize().height/2);
+        mainFrame.setLocation(tk.getScreenSize().width/2 - 200,tk.getScreenSize().height/2 -300 ) ;
 
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {

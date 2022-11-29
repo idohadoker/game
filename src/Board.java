@@ -162,7 +162,6 @@ public class Board extends JPanel {
         g.setFont(small);
         g.drawString(message, (Commons.BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2,
                 Commons.BOARD_HEIGHT / 2);
-
         gameended();
     }
 
